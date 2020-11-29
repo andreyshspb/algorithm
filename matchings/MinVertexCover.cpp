@@ -31,6 +31,8 @@ bool kuhn(int left) {
 }
 
 void matching() {
+    std::fill(usedL.begin(), usedL.end(), false);
+    std::fill(usedR.begin(), usedR.end(), false);
     bool flag = true;
     while (flag) {
         std::fill(usedL.begin(), usedL.end(), false);
@@ -58,6 +60,9 @@ void dfs(int left) {
 }
 
 void vertex_cover() {
+    matching();
+    std::fill(usedL.begin(), usedL.end(), false);
+    std::fill(usedR.begin(), usedR.end(), false);
     for (int left = 0; left < cntL; left++) {
         if (!covered[left]) {
             dfs(left);
@@ -94,8 +99,6 @@ int main() {
         }
     }
 
-
-    matching();
 
     vertex_cover();
 
