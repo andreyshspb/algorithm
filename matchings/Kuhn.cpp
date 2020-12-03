@@ -30,6 +30,8 @@ bool kuhn(int left) {
 }
 
 void matching() {
+    std::fill(usedL.begin(), usedL.end(), false);
+    std::fill(usedR.begin(), usedR.end(), false);
     bool flag = true;
     while (flag) {
         std::fill(usedL.begin(), usedL.end(), false);
