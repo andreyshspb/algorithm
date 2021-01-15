@@ -69,20 +69,20 @@ int main() {
     std::cout.tie(nullptr);
 
 
-    int count_vertexes = 0, count_edges = 0;
-    std::cin >> count_vertexes >> count_edges;
+    int cntV = 0, cntE = 0;
+    std::cin >> cntV >> cntE;
 
 
-    head.resize(count_vertexes, NONE);
-    used.resize(count_vertexes, false);
-    next.resize(2 * count_edges, NONE);
+    head.resize(cntV, NONE);
+    used.resize(cntV, false);
+    next.resize(2 * cntE, NONE);
 
 
     std::cin >> source >> sink;
     source -= 1; sink -= 1;
 
 
-    for (int i = 0; i < count_edges; i++) {
+    for (int i = 0; i < cntE; i++) {
         int first = 0, second = 0, capacity = 0;
         std::cin >> first >> second >> capacity;
         make_edge(first - 1, second - 1, capacity);

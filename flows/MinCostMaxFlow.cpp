@@ -17,8 +17,8 @@ struct Edge {
 };
 
 
-int count_vertexes = 0;
-int count_edges = 0;
+int cntV = 0;
+int cntE = 0;
 
 int source = 0;
 int sink = 0;
@@ -108,7 +108,7 @@ long long min_cost_max_flow() {
             edges[cur ^ 1].flow -= flow;
         }
 
-        for (int v = 0; v < count_vertexes; v++) {
+        for (int v = 0; v < cntV; v++) {
             phi[v] += dist[v];
         }
     }
@@ -126,20 +126,20 @@ int main() {
     std::cout.tie(nullptr);
 
 
-    std::cin >> count_vertexes >> count_edges;
+    std::cin >> cntV >> cntE;
 
 
-    phi.resize(count_vertexes, INF);
-    dist.resize(count_vertexes, INF);
-    from.resize(count_vertexes, NONE);
-    head.resize(count_vertexes, NONE);
-    next.resize(2 * count_edges, NONE);
+    phi.resize(cntV, INF);
+    dist.resize(cntV, INF);
+    from.resize(cntV, NONE);
+    head.resize(cntV, NONE);
+    next.resize(2 * cntE, NONE);
 
 
     std::cin >> source >> sink;
 
 
-    for (int i = 0; i < count_edges; i++) {
+    for (int i = 0; i < cntE; i++) {
         int first = 0, second = 0;
         long long capacity = 0, cost = 0;
         std::cin >> first >> second >> capacity >> cost;
